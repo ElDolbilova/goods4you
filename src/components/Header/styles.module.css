@@ -1,0 +1,81 @@
+.root {
+	position: relative;
+	color: #ffffff;
+	padding: 20px 8.125em 1.5em;
+	background-color: #484283;
+	display: flex;
+	flex-direction: row;
+}
+@media (max-width: 834px) {
+	.root {
+		padding-left: 3.75em;
+		padding-right: 3.75em;
+	}
+}
+@media (max-width: 480px) {
+	.root {
+		flex-direction: column;
+		align-items: center;
+		gap: 1em;
+	}
+}
+.root span {
+	flex-grow: 1;
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 1.445;
+	margin: 0;
+	text-align: left;
+}
+.root span a{
+    text-decoration: none;
+    color:#ffffff;
+}
+.navul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.navul li {
+	float: left;
+}
+.navul a {
+	display: block;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	line-height: 1.445;
+	margin: 14px 6px 14px 28px;
+	position: relative;
+}
+.navul a:hover {
+	color: #c4c4c4;
+	text-decoration: underline;
+}
+.navul li:last-child a {
+	margin-right: 0;
+}
+.cart {
+	background: url(/cart.svg);
+	background-size: contain;
+	float: right;
+	width: 20px;
+	height: 18px;
+	margin-left: 3px;
+	margin-right: 6px;
+	margin-top: -2px;
+}
+.navul .badge {
+	background-color: #f14f4f;
+	position: absolute;
+	right: 1px;
+	bottom: -2px;
+	border-radius: 6px;
+	font-size: 8px;
+	font-weight: 300;
+	line-height: 1.25;
+	padding: 0.15em 0.55em;
+}

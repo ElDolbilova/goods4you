@@ -1,0 +1,41 @@
+.fotnav{
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    overflow: hidden;  
+    display:flex;
+    align-items: center;
+}
+@media (max-width:480px){
+    footer{
+        flex-direction: column;
+    }
+  }
+
+.fotnav li{ float:left}
+.fotnav a{
+    display: block;
+    color:#FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: none;
+  margin: 14px 0 14px 32px;
+  position: relative;
+  line-height: 1.445;
+}
+.fotnav li:first-child{
+    flex-grow: 1;
+    text-align: left;
+}
+.fotnav li:first-child a{
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.445;
+    margin: 0;
+}
+.fotnav a:hover{
+    color:#C4C4C4;
+    text-decoration: underline;
+
+}
