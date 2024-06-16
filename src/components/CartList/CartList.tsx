@@ -1,17 +1,18 @@
-import { cartproducts } from "../../constants/mockdata";
+//import { cartproducts } from "../../constants/mockdata";
 import { CartItem } from "../CartItem/CatrItem";
 import styles from "./styles.module.css";
 
-export const CartList = () => {
+export const CartList = ({ products }) => {
 	return (
 		<div className={styles.root}>
-			{cartproducts.map((cartitem) => (
+			{products.map((product) => (
 				<CartItem
-					key={cartitem.productId}
-					//productId={cartitem.productId}
-					productTitle={cartitem.productTitle}
-					productImage={cartitem.productImage}
-					count={cartitem.count}
+					key={product.id}
+					productId={product.id}
+					productTitle={product.title}
+					productImage={product.thumbnail}
+					productPrice={product.price}
+					count={product.quantity}
 				/>
 			))}
 		</div>

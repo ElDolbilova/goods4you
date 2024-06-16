@@ -2,19 +2,16 @@ import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { Counter } from "../Counter/Counter";
 import styles from "./styles.module.css";
-
-interface CartItemType {
-	//productId: string;
-	productTitle: string;
-	productImage: string;
-	count: number;
-}
+import { CartItemType } from "../../types/types";
 
 export const CartItem = ({
-	productTitle,
+	productId,
 	productImage,
+	productTitle,
+	productPrice,
 	count,
 }: CartItemType) => {
+	const productUrl = "../products/" + productId;
 	return (
 		<div className={styles.root}>
 			<div className={styles.product}>
@@ -23,8 +20,8 @@ export const CartItem = ({
 					alt={productTitle}
 				/>
 				<div className={styles.product_info}>
-					<Link to='../product/1'>{productTitle}</Link>
-					<p>100 $</p>
+					<Link to={productUrl}>{productTitle}</Link>
+					<p>{productPrice} $</p>
 				</div>
 			</div>
 			<div className={styles.btns}>

@@ -26,10 +26,14 @@
 }
 .product img{
     align-self: center;
+	max-width: 100px;
+	height: auto;
+	width: 100%;
 }
 
 .product_info {
 	flex-grow: 1;
+	align-self: center;
 }
 
 .product_info a {

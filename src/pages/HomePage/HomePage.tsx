@@ -1,11 +1,9 @@
-/* import reactLogo from "/src/assets/react.svg";
-import viteLogo from "/vite.svg"; */
-
 import { Catalog } from "../../components/Catalog/Catalog";
 import { Footer } from "../../components/Footer/Footer";
 import { FAQ } from "../../components/FAQ/FAQ";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import { Badge } from "../../components/Badge/Badge";
 
 export const HomePage = () => {
 	return (
@@ -24,7 +22,7 @@ export const HomePage = () => {
 							<li>
 								<Link to='cart'>
 									Cart<i className={styles.cart}></i>
-									<span className={styles.badge}>1</span>
+									<Badge />
 								</Link>
 							</li>
 						</ul>

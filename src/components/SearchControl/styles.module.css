@@ -1,15 +1,15 @@
-.root{
+.searchroot{
     margin: 1em 0;
     display: flex;
     justify-content: space-between;
     gap: 1.25em;
 }
 @media (max-width:768px){
-    .root{
+    .searchroot{
         flex-direction: column;
     }
 }
-.root input[type="text"]{
+.searchroot input[type="text"]{
     font-size: 16px;
     font-weight: 400;
     line-height: 1.4;
@@ -20,6 +20,6 @@
     background-color: #F6F6F6;
     flex-grow: 1;
 }
-.root input[type="text"]::placeholder{
+.searchroot input[type="text"]::placeholder{
     color: #B2B5BB;
 }
