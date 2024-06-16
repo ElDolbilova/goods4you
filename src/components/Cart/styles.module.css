@@ -1,0 +1,70 @@
+.root {
+	padding: 3.75em 8.125em 15.45em;
+}
+@media (max-width:834px) 
+{
+    .root{
+        padding: 3.75em; 
+    }
+}
+@media (max-width:480px) 
+{
+    .root{
+        padding: 1.75em; 
+    }
+}
+.root h1 {
+	margin: 0;
+	font-size: 30px;
+	font-weight: 700;
+	text-align: left;
+	color: #444b58;
+	}
+.root section {
+	display: flex;
+    padding-top: 3.75em;
+    flex-direction:row;
+}
+@media (max-width:1024px) 
+{
+    .root section{
+        flex-direction: column;
+    }
+}
+.cart_total {
+	flex-grow: 1;
+	text-align: right;
+    margin-right: 0.2em;
+}
+
+.cart_total p {
+	font-size: 20px;
+	font-weight: 700;
+	color: #444b58;
+	margin: 0;
+	padding: 0;
+    margin-top: 2em;
+}
+
+.cart_total p span {
+	font-weight: 600;
+	color: #b2b5bb;
+    margin-right: 0.5em;
+}
+
+.cart_total p:first-of-type {
+	font-weight: 400;
+    margin-top: 1.6em;
+}
+.cart_total p:first-of-type span {
+	font-weight: 400;
+    
+}
+.cart_total p:last-of-type {
+	font-size: 24px;
+	font-weight: 700;
+    margin-top: 0.2em;
+}
+.cart_total p:last-of-type span {
+	font-size: 24px;
+}

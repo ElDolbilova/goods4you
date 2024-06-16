@@ -1,0 +1,10 @@
+.root {
+	display: inline-flex;
+	justify-content: space-between;
+	gap: 0.5em;
+    margin-top: 0.4em;
+}
+
+.grey {
+	opacity: 0.5;
+}

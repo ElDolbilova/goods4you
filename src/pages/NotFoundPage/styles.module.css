@@ -1,0 +1,19 @@
+.root{
+    padding:8.125em;
+}
+.root h1{
+    color: #444B58;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.445;
+}
+.root a{
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.445;
+    color:#444B58;
+    text-decoration: none;
+}
+.root a:hover{
+    text-decoration: underline;
+}

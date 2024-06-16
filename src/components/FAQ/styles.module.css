@@ -1,0 +1,28 @@
+.root {
+	background-color: #484283;
+	color: #ffffff;
+}
+.root.faqsection {
+	padding-left: 17.5em;
+	padding-right: 17.5em;
+	padding-bottom: 7.75em;
+	padding-top: 2.19em;
+}
+
+@media (max-width:1024px) 
+{
+    .root.faqsection{
+        padding: 3.75em 8.125em; 
+    }
+}
+@media (max-width:480px) 
+{
+    .root.faqsection{
+        padding: 1.75em 3.75em 3.75em; 
+    }
+}
+
+.root h2 {
+	color: #ffffff;
+	margin-bottom: 0.8em;
+}

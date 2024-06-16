@@ -1,0 +1,52 @@
+.ques_item {
+	border-top: 1px solid #ffffff;
+}
+.ques_item:last-of-type {
+	border-bottom: 1px solid #ffffff;
+}
+
+.ques_item h3 {
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1.445;
+	margin-top: 1.48em;
+	margin-bottom: 0.9em;
+}
+.ques_item p{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    padding-bottom: 2.35em;
+    margin:0;
+}
+.btn_q {
+	float: right;
+	background-color: transparent;
+    font-size: 60px;
+    font-weight: 100;
+    margin-top: 0.2em;
+    margin-right: -15px;
+}
+.btn_q:hover {
+	border: 0;
+	background-color: transparent;
+}
+.collapsed p {
+	opacity: 0;
+	max-height: 0px;
+   padding-bottom:0;
+	transition:  max-height 1s ease,padding-bottom 2s ease, opacity 0.6s ease-in;
+}
+.collapsed button {
+	transition: transform 1s;
+}
+.expanded p {
+	opacity: 1;
+	max-height: 500px;
+	transition:  max-height 1s ease-in,padding-bottom 1s ease, opacity 1s ease-in;
+}
+.expanded button {
+	transition: transform 1s;
+	transform: rotate(45deg);
+}
