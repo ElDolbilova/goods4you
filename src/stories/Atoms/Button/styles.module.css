@@ -1,0 +1,40 @@
+.root {  
+    background-color: #F14F4F;
+    border: 1px solid #F14F4F;
+    border-radius: 4px;
+    color:#FFFFFF;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 22px 47px;
+}
+
+.root:hover{
+    background-color: #8C2828;
+    border: 1px solid #8C2828;
+}
+
+.l {
+    font-size: 20px;
+    min-width: 300px;
+    min-height: 30px;
+}
+
+.m {
+    font-size: 16px;
+    min-width: 200px;
+    min-height: 67px;
+}
+
+.s {
+    font-size: 36px;
+    font-weight: 300;
+    width: 48px;
+    height: 48px;
+    padding:0 0 3px;
+    display: inline-flex;
+    justify-content: center; /* center the content horizontally */
+    align-items: center; /* center the content vertically */
+    --padding-x: 1.2em;
+    border-color: transparent;
+}
