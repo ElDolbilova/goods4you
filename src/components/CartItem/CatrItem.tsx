@@ -3,6 +3,8 @@ import { Button } from "../Button/Button";
 import { Counter } from "../Counter/Counter";
 import styles from "./styles.module.css";
 import { CartItemType } from "../../types/types";
+import { useDispatch } from "react-redux";
+import { deleteProduct } from "../../store/cart/cartSlice";
 
 export const CartItem = ({
 	productId,
@@ -12,6 +14,9 @@ export const CartItem = ({
 	count,
 }: CartItemType) => {
 	const productUrl = "../products/" + productId;
+	const dispatch = useDispatch();
+	const delProduct = () => dispatch(deleteProduct(productId));
+
 	return (
 		<div className={styles.root}>
 			<div className={styles.product}>
@@ -25,9 +30,12 @@ export const CartItem = ({
 				</div>
 			</div>
 			<div className={styles.btns}>
-				<Counter initialValue={count} />
+				<Counter
+					initialValue={count}
+					productId={productId}
+				/>
 				<Button
-					onClick={() => alert("delete button click!")}
+					onClick={delProduct}
 					className={styles.btn_delete}
 				>
 					Delete

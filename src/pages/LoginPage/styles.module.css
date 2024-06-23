@@ -1,0 +1,78 @@
+.root {
+}
+.root header {
+	position: relative;
+	color: #ffffff;
+	padding: 20px 8.125em 1.5em;
+	background-color: #484283;
+	display: flex;
+	flex-direction: row;
+}
+.root span {
+	flex-grow: 1;
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 1.445;
+	margin: 0;
+	text-align: left;
+}
+.root h1 {
+	font-size: 30px;
+	font-weight: 700;
+	color: #444b58;
+	text-align: center;
+	margin-top: 1.8em;
+    margin-bottom: 2em;
+}
+.button {
+	background-color: #f14f4f;
+	border: 1px solid #f14f4f;
+	border-radius: 4px;
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 22px 47px;
+	min-width: 200px;
+	align-self: center;
+}
+.button:hover {
+	background-color: #8c2828;
+	border: 1px solid #8c2828;
+}
+.button:disabled {
+	background-color: #8c2828;
+	border: 1px solid #8c2828;
+}
+.form_input {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.4;
+	color: #444b58;
+	padding: 1.3em 1em;
+	border: 1px solid #f6f6f6;
+	border-radius: 4px;
+	background-color: #f6f6f6;
+	flex-grow: 1;
+}
+.form_input::placeholder {
+	color: #b2b5bb;
+}
+.form_group {
+	display: flex;
+}
+.form_group label {
+	display: none;
+}
+.formlogin {
+	border: 1px solid #d9d9d9;
+	border-radius: 4px;
+	padding: 4em 3em;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+    gap: 3em;
+    margin: 0 auto;
+    max-width: 628px;
+    align-items: stretch;
+}

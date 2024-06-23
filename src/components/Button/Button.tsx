@@ -7,6 +7,7 @@ interface TB {
 	onClick: React.MouseEventHandler<HTMLButtonElement>;
 	className?: string | "";
 	size?: string;
+	disabled?: boolean;
 }
 
 export const Button = ({
@@ -14,12 +15,14 @@ export const Button = ({
 	className = "",
 	onClick,
 	size = SIZES.m,
+	disabled = false,
 }: TB) => {
 	return (
 		<button
 			type='button'
 			onClick={onClick}
 			className={clasnames(styles.root, className, styles[size])}
+			disabled={disabled}
 		>
 			{children}
 		</button>

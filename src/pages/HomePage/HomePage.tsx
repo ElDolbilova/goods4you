@@ -1,11 +1,26 @@
 import { Catalog } from "../../components/Catalog/Catalog";
 import { Footer } from "../../components/Footer/Footer";
 import { FAQ } from "../../components/FAQ/FAQ";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import { Badge } from "../../components/Badge/Badge";
+import { useGetCartByUserIdQuery } from "../../store/cart/cart";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export const HomePage = () => {
+	const { userInfo } = useSelector((state) => state.auth);
+	const navigate = useNavigate();
+	useEffect(() => {
+		if (!userInfo) {
+			navigate("/login");
+		}
+	}, [navigate, userInfo]);
+	const { data, error, isLoading } = useGetCartByUserIdQuery(userInfo?.id);
+
+	if (isLoading || error) {
+		return <></>;
+	}
 	return (
 		<>
 			<header className={styles.root}>
@@ -22,7 +37,7 @@ export const HomePage = () => {
 							<li>
 								<Link to='cart'>
 									Cart<i className={styles.cart}></i>
-									<Badge />
+									{data ? data.total > 0 ? <Badge /> : null : null}
 								</Link>
 							</li>
 						</ul>

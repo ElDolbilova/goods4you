@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
-import { useGetCartByUserIdQuery } from "../../store/cart/cart";
 import { Badge } from "../Badge/Badge";
+import { useGetCartByUserIdQuery } from "../../store/cart/cart";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
-	const userId = 94;
-	const { data, error, isLoading } = useGetCartByUserIdQuery(userId);
+	const { userInfo } = useSelector((state) => state.auth);
+
+	const { data, error, isLoading } = useGetCartByUserIdQuery(userInfo?.id);
+
+	if (isLoading || error) {
+		return <></>;
+	}
 
 	return (
 		<header className={styles.root}>
@@ -28,7 +34,7 @@ export const Header = () => {
 					<li>
 						<Link to='../cart'>
 							Cart<i className={styles.cart}></i>
-							<Badge />
+							{data ? data.total > 0 ? <Badge /> : null : null}
 						</Link>
 					</li>
 				</ul>
