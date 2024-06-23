@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import { useGetCartByUserIdQuery } from "../../store/cart/cart";
+import { Badge } from "../Badge/Badge";
 
 export const Header = () => {
+	const userId = 94;
+	const { data, error, isLoading } = useGetCartByUserIdQuery(userId);
+
 	return (
 		<header className={styles.root}>
 			<span>
@@ -23,7 +28,7 @@ export const Header = () => {
 					<li>
 						<Link to='../cart'>
 							Cart<i className={styles.cart}></i>
-							<span className={styles.badge}>1</span>
+							<Badge />
 						</Link>
 					</li>
 				</ul>

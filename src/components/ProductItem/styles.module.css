@@ -2,17 +2,24 @@
 	margin: 0 0 2.5em 0;
 	text-align: left;
 	max-width: 370px;
-    width:100%;
+	width: 100%;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap:0.8em;
 }
 .root a {
 	color: #444b58;
 	text-decoration: none;
+	text-align: center;
 }
-.root a img{
+.root a img {
 	height: auto;
-    width:100%;
-    max-width: 370px;
+
+	width: auto;
+	max-width: 370px;
+	max-height: 370px;
 }
 .root a:after {
 	content: "";

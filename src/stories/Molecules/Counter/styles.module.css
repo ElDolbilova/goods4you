@@ -1,0 +1,17 @@
+.root{
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+    text-align: center;
+}
+.num_box{
+    color:#444B58;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #F6F6F6;
+    border-radius: 4px;
+    min-width: 62px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -3,6 +3,8 @@ import { Button } from "../Button/Button";
 import { SIZES } from "../../constants/ui";
 import styles from "./styles.module.css";
 import { Counter } from "../Counter/Counter";
+import cartSlice from "../../store/cart/cartSlice";
+import { useSelector } from "react-redux";
 
 interface ProductItemType {
 	productid: string;
@@ -17,26 +19,34 @@ export const ProductItem = ({
 	image,
 	price,
 }: ProductItemType) => {
+	const productLink = "products/" + productid;
+	const selprIds = cartSlice.getSelectors().selectCart;
+	const list = useSelector((state) => selprIds(state));
+	const pr_count = list?.cartslice?.products.find(
+		(product) => product.id == productid
+	);
+
 	return (
 		<article
 			key={productid}
 			className={styles.root}
 		>
-			<Link to={"product/1"}>
+			<Link to={productLink}>
 				<img
 					src={image}
 					alt={title}
+					loading='lazy'
 				/>
 			</Link>
 			<div className={styles.product_info}>
 				<div className={styles.description}>
 					<h3>
-						<Link to={"product/1"}>{title}</Link>
+						<Link to={productLink}>{title}</Link>
 					</h3>
 					<p>{price} $</p>
 				</div>
-				{!productid.localeCompare("9") ? (
-					<Counter initialValue={1} />
+				{pr_count ? (
+					<Counter initialValue={pr_count.quantity} />
 				) : (
 					<Button
 						onClick={() => alert("Cart click")}

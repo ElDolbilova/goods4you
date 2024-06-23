@@ -15,7 +15,7 @@ function App() {
 					element={<HomePage />}
 				/>
 				<Route
-					path='product?/:priductId'
+					path='products?/:productId'
 					element={<ProductPage />}
 				/>
 				<Route

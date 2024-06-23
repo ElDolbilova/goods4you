@@ -1,5 +1,5 @@
 import { ProductList } from "../ProductsList/ProductList";
-import { SearchControl } from "../SearchControl/SearchControl";
+//import { SearchControl } from "../SearchControl/SearchControl";
 import styles from "./styles.module.css";
 
 export const Catalog = () => {
@@ -9,7 +9,7 @@ export const Catalog = () => {
 			className={styles.root}
 		>
 			<h2>Catalog</h2>
-			<SearchControl />
+
 			<ProductList />
 		</section>
 	);
