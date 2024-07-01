@@ -1,10 +1,24 @@
+import { useDispatch } from "react-redux";
 import { SIZES } from "../../constants/ui";
-import { useCount } from "../../hooks/useCount";
 import { Button } from "../Button/Button";
 import styles from "./styles.module.css";
+import { addProduct, removeProduct } from "../../store/cart/cartSlice";
 
-export const Counter = ({ initialValue = 1 }) => {
-	const { count, increment, decrement } = useCount(initialValue);
+export const Counter = ({
+	initialValue = 1,
+	productId,
+	maxCount = 0,
+}: {
+	initialValue: number;
+	productId: number;
+	maxCount?: number;
+}) => {
+	//const { count, increment, decrement } = useCount(initialValue);
+	const dispatch = useDispatch();
+	const count = initialValue;
+
+	const decrement = () => dispatch(removeProduct(productId));
+	const increment = () => dispatch(addProduct(productId));
 
 	return (
 		<div className={styles.root}>
@@ -18,6 +32,7 @@ export const Counter = ({ initialValue = 1 }) => {
 			<Button
 				onClick={increment}
 				size={SIZES.s}
+				disabled={maxCount == 0 ? false : count >= maxCount}
 			>
 				+
 			</Button>

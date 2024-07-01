@@ -12,6 +12,7 @@ interface ProductItemType {
 	title: string;
 	image: string;
 	price: number;
+	stock: number;
 }
 
 export const ProductList = () => {
@@ -64,6 +65,7 @@ export const ProductList = () => {
 						title={product.title}
 						price={product.price}
 						image={product.images[0]}
+						stock={product.stock}
 					/>
 				))}
 			</div>

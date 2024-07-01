@@ -3,14 +3,16 @@ import { Button } from "../Button/Button";
 import { SIZES } from "../../constants/ui";
 import styles from "./styles.module.css";
 import { Counter } from "../Counter/Counter";
-import cartSlice from "../../store/cart/cartSlice";
-import { useSelector } from "react-redux";
+import { addToCart, selectCartProductIds } from "../../store/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { CartItemType } from "../../types/types";
 
 interface ProductItemType {
 	productid: string;
 	title: string;
 	image: string;
 	price: number;
+	stock: number;
 }
 
 export const ProductItem = ({
@@ -18,13 +20,22 @@ export const ProductItem = ({
 	title,
 	image,
 	price,
+	stock,
 }: ProductItemType) => {
 	const productLink = "products/" + productid;
-	const selprIds = cartSlice.getSelectors().selectCart;
-	const list = useSelector((state) => selprIds(state));
-	const pr_count = list?.cartslice?.products.find(
-		(product) => product.id == productid
-	);
+	const pr_Ids = useSelector((state) => selectCartProductIds(state));
+	const pr_count = pr_Ids?.find(({ id }) => id == productid);
+
+	const dispatch = useDispatch();
+	const cartProduct = {
+		id: parseInt(productid),
+		title: title,
+		price: price,
+		quantity: 1,
+		thumbnail: image,
+	};
+
+	const add = () => dispatch(addToCart(cartProduct));
 
 	return (
 		<article
@@ -46,10 +57,14 @@ export const ProductItem = ({
 					<p>{price} $</p>
 				</div>
 				{pr_count ? (
-					<Counter initialValue={pr_count.quantity} />
+					<Counter
+						initialValue={pr_count.quantity}
+						productId={productid}
+						maxCount={stock}
+					/>
 				) : (
 					<Button
-						onClick={() => alert("Cart click")}
+						onClick={add}
 						size={SIZES.s}
 					>
 						<i className={styles.cart}></i>

@@ -3,12 +3,16 @@ import type { PreloadedState } from "@reduxjs/toolkit";
 import { cartApi } from "./cart/cart";
 import { productApi } from "./product/product";
 import { cartSlice } from "./cart/cartSlice";
+import { authApi } from "./auth/authService";
+import authSlice from "./auth/authSlice";
 //import { setupListeners } from "@reduxjs/toolkit/query";
 
 const rootReducer = combineReducers({
 	[cartApi.reducerPath]: cartApi.reducer,
 	[productApi.reducerPath]: productApi.reducer,
 	cartslice: cartSlice.reducer,
+	auth: authSlice.reducer,
+	[authApi.reducerPath]: authApi.reducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
@@ -17,7 +21,8 @@ export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
 		middleware: (getDefaultMiddleware) =>
 			getDefaultMiddleware()
 				.concat(cartApi.middleware)
-				.concat(productApi.middleware),
+				.concat(productApi.middleware)
+				.concat(authApi.middleware),
 
 		preloadedState,
 	});

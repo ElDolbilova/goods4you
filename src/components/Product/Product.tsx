@@ -6,84 +6,82 @@ import { Rating } from "../Rating/Rating";
 import styles from "./styles.module.css";
 
 import { ProductImagesBlock } from "../ProductImagesBlock/ProductImagesBlock";
-import { useSelector } from "react-redux";
-import cartSlice, { selectors } from "../../store/cart/cartSlice";
-import { RootState } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, selectCartProductIds } from "../../store/cart/cartSlice";
+
 import { Counter } from "../Counter/Counter";
 
-export const Product = () => {
-	const { productId } = useParams();
+export const Product = ({ product }) => {
+	const pr_Ids = useSelector((state) => selectCartProductIds(state));
+	const pr_count = pr_Ids?.find(({ id }) => id == product.id);
 
-	const { data, error, isLoading } = useGetProductByIdQuery(productId);
-	const selprIds = cartSlice.getSelectors().selectCart;
-	const list = useSelector((state) => selprIds(state));
-	const pr_count = list?.cartslice?.products.find(
-		(product) => product.id == productId
-	);
+	const dispatch = useDispatch();
+	const cartProduct = {
+		id: product.id,
+		title: product.title,
+		price: product.price,
+		quantity: 1,
+		thumbnail: product.thumbnail,
+	};
 
-	if (error) {
-		return redirect("/404");
-	}
-	if (isLoading) {
-		return (
-			<main className={styles.root}>
-				<h1>Product 5</h1>
-			</main>
-		);
-	}
+	const add = () => dispatch(addToCart(cartProduct));
 
 	return (
 		<main className={styles.root}>
 			<h1>Product 5</h1>
 			<section>
 				<ProductImagesBlock
-					imagelist={data.images}
-					title={data.title}
+					imagelist={product.images}
+					title={product.title}
 				/>
 				<div className={styles.descriptionblock}>
 					<div className={styles.head_info}>
-						<h2>{data.title}</h2>
+						<h2>{product.title}</h2>
 						<p>
-							<span>SKU ID</span> {data.sku}
+							<span>SKU ID</span> {product.sku}
 						</p>
 					</div>
 					<div className={styles.info}>
 						<p>
-							<span>Rating</span> <Rating rating={data.rating} />
+							<span>Rating</span> <Rating rating={product.rating} />
 						</p>
 						<p>
 							<span>Base price</span>
-							{data.price}$
+							{product.price}$
 						</p>
 						<p>
 							<span>Discount percentage</span>
-							{data.discountPercentage}%
+							{product.discountPercentage}%
 						</p>
 						<p>
 							<span>Discount price</span>450$
 						</p>
 						<p>
 							<span>Stock</span>
-							{data.stock}
+							{product.stock}
 						</p>
 						<p>
 							<span>Brand</span>
-							{data.brand}
+							{product.brand}
 						</p>
 						<p>
 							<span>Category</span>
-							{data.category}
+							{product.category}
 						</p>
 						<p>
 							<span>Description</span>
-							{data.description}
+							{product.description}
 						</p>
 					</div>
 					{pr_count ? (
-						<Counter initialValue={pr_count.quantity} />
+						<Counter
+							initialValue={pr_count.quantity}
+							productId={product.id}
+							maxCount={product.stock}
+						/>
 					) : (
 						<Button
-							onClick={() => alert("Add to cart")}
+							onClick={add}
 							size={SIZES.m}
 						>
 							Add to cart

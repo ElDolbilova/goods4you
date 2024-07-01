@@ -8,9 +8,9 @@ export const NotFoundPage = () => {
 		<>
 			<Header />
 			<main className={styles.root}>
-				<h1>Страница не найдена...&#129402;</h1>
+				<h1>Oops, something happened, this page id missing!</h1>
 				<article>
-					<p>Но здесь &#128071; найдется всё :)</p>
+					<p>But you can find all here &#128071; :)</p>
 					<Link to='..'>Goods4you</Link>
 				</article>
 			</main>

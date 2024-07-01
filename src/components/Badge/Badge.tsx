@@ -1,22 +1,13 @@
-import { useGetCartByUserIdQuery } from "../../store/cart/cart";
+import { useSelector } from "react-redux";
 import styles from "./styles.module.css";
+import { selectCartTotal } from "../../store/cart/cartSlice";
 
 export const Badge = () => {
-	const userId = 94;
-	const { data, error, isLoading } = useGetCartByUserIdQuery(userId);
-	if (error) {
-		return <></>;
-	}
-	if (isLoading) {
-		return <></>;
-	}
+	const cartsTotal = useSelector((state) => selectCartTotal(state));
+
 	return (
 		<>
-			{data ? (
-				data.total > 0 ? (
-					<span className={styles.badge}>{data.carts[0].totalProducts}</span>
-				) : null
-			) : null}
+			<span className={styles.badge}>{cartsTotal}</span>
 		</>
 	);
 };
