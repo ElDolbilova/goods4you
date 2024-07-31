@@ -18,8 +18,6 @@ export const Cart = () => {
 	const totalPrice = useSelector((state) => selectCartTotalPrice(state));
 	const totalDiscount = useSelector((state) => selectCartTotalDiscount(state));
 
-	console.log(products);
-
 	return (
 		<main className={styles.root}>
 			<h1>My cart</h1>

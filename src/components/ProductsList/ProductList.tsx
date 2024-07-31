@@ -34,9 +34,6 @@ export const ProductList = () => {
 	const handleChange = debounce(({ target }) => {
 		setSearchString(target.value);
 	}, 500);
-	/* const handleClick = () => {
-		setSearchString(target.value);
-	}; */
 
 	if (isLoading) {
 		return <>Loading...</>;
