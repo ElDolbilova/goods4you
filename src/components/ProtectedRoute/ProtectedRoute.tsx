@@ -8,9 +8,7 @@ export const ProtectedRoute = () => {
 	const dispatch = useDispatch();
 	const { userInfo } = useSelector((state) => state.auth);
 	const navigate = useNavigate();
-	console.log(!userInfo);
-
-	// automatically authenticate user if token is found
+	
 	const { data } = useGetUserDetailsQuery("userDetails", {
 		pollingInterval: 900000, // 15mins
 	});

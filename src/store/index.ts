@@ -5,7 +5,6 @@ import { productApi } from "./product/product";
 import { cartSlice } from "./cart/cartSlice";
 import { authApi } from "./auth/authService";
 import authSlice from "./auth/authSlice";
-//import { setupListeners } from "@reduxjs/toolkit/query";
 
 const rootReducer = combineReducers({
 	[cartApi.reducerPath]: cartApi.reducer,
